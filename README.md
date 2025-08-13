@@ -31,6 +31,7 @@ python -m venv .venv
 3) 安装 PyTorch（CUDA 11.8）
 
 ```bash
+python -m pip install --upgrade pip
 pip install torch==2.7.0 torchvision==0.22.0 torchaudio==2.7.0 --index-url https://download.pytorch.org/whl/cu118
 ```
 
@@ -114,30 +115,4 @@ python pipeline_v5.py
 
 ---
 
-### 常见问题
-
-- 第一次运行直接退出：为了创建 `workdir` 与子目录，程序首次导入 `utils` 会创建目录并退出。请将数据放入 `workdir/RawData/` 后再运行一次。
-- CUDA/驱动不匹配：请确保本机 CUDA 版本与安装的 `torch==2.7.0`（cu118 轮子）兼容；或改装 CPU 版本，例如：`pip install torch==2.7.0 torchvision==0.22.0 torchaudio==2.7.0 --index-url https://download.pytorch.org/whl/cpu`。
-- 找不到模型：请将权重文件放入 `workdir/Model/`，程序会自动加载该目录中最新的一个。
-- `RawData` 无文件：`pipeline_v5.py` 会报错并退出；请先完成“准备数据”流程。
-
----
-
-### 最小示例流程（从零开始）
-
-```bash
-# 0) 设置 utils/PARAM.py 的 workdir
-
-# 1) 准备目录（可通过任意一次运行自动创建）
-python -c "import utils"  # 如首次创建后退出属于正常
-
-# 2) 放数据（优先使用 ROOT 文件；若是 CSV 也可直接放入）
-copy your_data.root  %workdir%/RawData/
-
-# 3) 放模型
-copy backup/filtering_model_back.pth  %workdir%/Model/
-
-# 4) 运行主管线
-python pipeline_v5.py
-```
 
