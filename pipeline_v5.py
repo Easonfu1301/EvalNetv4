@@ -16,10 +16,10 @@ def main():
         exit(0)
 
     # print(f"Smear X = {SMEAR_N_X}, Y = {SMEAR_N_Y}")
-    #
-    # root2csv.main()
-    # split_csv.main()
-    # split_hits.main()
+    
+    root2csv.main()
+    split_csv.main()
+    split_hits.main()
     BackwardEval.main()
     Check_Efficiency.main()
     Plot_Efficiency.main()
