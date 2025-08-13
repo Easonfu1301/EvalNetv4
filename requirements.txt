@@ -1,0 +1,10 @@
+torch~=2.4.1+cu118
+numpy~=2.1.2
+matplotlib~=3.9.2
+uproot~=5.4.1
+pandas~=2.2.3
+numba~=0.61.0
+tqdm~=4.66.5
+scipy~=1.14.1
+natsort~=8.4.0
+scikit-learn~=1.5.2
